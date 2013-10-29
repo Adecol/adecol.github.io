@@ -1,1 +1,35 @@
-Hello
+---
+layout: default
+title: Labs de ZoneDActivite.com
+---
+
+<div class="posts">
+    <h1 class="content-subhead">Sujet important</h1>
+
+    {% include about.html %}
+</div>
+
+<div class="posts">
+    <h1 class="content-subhead">Posts récents</h1>
+
+    {% for post in site.posts %}
+
+        <section class="post">
+            <header class="post-header">
+
+                <h2>{{ post.title }}</h2>
+
+                <p>
+                    Par <a href="{{ post.author_link }}">{{ post.author }}</a> le {{ post.date | date_to_string }}
+                </p>
+            </header>
+
+            <div class="post-description">
+                <p>
+                    {{ post.content }}
+                </p>
+            </div>
+        </section>
+
+    {% endfor %}
+</div>
